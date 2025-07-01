@@ -24,7 +24,6 @@ This project showcases different implementations of SQL subqueries including:
 
 The database consists of the following tables:
 
-```mermaid
 erDiagram
     departments ||--o{ employees : "1-to-many"
     customers ||--o{ orders : "1-to-many"
