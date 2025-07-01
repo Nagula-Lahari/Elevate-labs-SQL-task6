@@ -118,16 +118,35 @@ The repository includes the following subquery implementations:
 
 The project addresses common interview questions about subqueries:
 
-1. What is a subquery?
-2. Difference between subquery and join
-3. What is a correlated subquery?
-4. Can subqueries return multiple rows?
-5. How does EXISTS work?
-6. How is performance affected by subqueries?
-7. What is scalar subquery?
-8. Where can we use subqueries?
-9. Can a subquery be in FROM clause?
-10. What is a derived table?
+What is a subquery?
+A subquery is a query nested inside another query (SELECT, INSERT, UPDATE, or DELETE) that provides data to the enclosing query.
+
+Difference between subquery and join?
+Subqueries execute independently and return a result set used by the outer query, while joins combine data from multiple tables based on related columns. Subqueries can sometimes be rewritten as joins, but may have different performance characteristics.
+
+What is a correlated subquery?
+A correlated subquery references columns from the outer query and executes once for each row processed by the outer query, unlike regular subqueries that execute only once.
+
+Can subqueries return multiple rows?
+Yes, depending on the operator used (IN, ANY, ALL, EXISTS). However, with comparison operators (=, >, <, etc.), the subquery must return a single value (scalar subquery).
+
+How does EXISTS work?
+EXISTS returns TRUE if the subquery returns any rows, regardless of their content. It stops processing as soon as it finds the first matching row, which can be efficient.
+
+How is performance affected by subqueries?
+Subqueries can impact performance positively or negatively. Correlated subqueries may be slow as they execute for each row. Modern databases often optimize subqueries by converting them to joins.
+
+What is scalar subquery?
+A scalar subquery returns exactly one row with one column, allowing it to be used wherever a single value expression is valid.
+
+Where can we use subqueries?
+Subqueries can be used in SELECT, FROM, WHERE, HAVING, and even INSERT/UPDATE/DELETE statements.
+
+Can a subquery be in FROM clause?
+Yes, this is called a derived table or inline view. It must have an alias and can be used like a regular table.
+
+What is a derived table?
+A derived table is a subquery in the FROM clause that acts as a temporary table for the duration of the query execution.
 
 Answers to these questions can be found in the [SQL script file](/subqueries_demo.sql).
 
