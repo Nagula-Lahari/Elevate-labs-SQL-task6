@@ -73,35 +73,27 @@ The repository includes the following subquery implementations:
 
 Scalar Subquery in SELECT
 
-sql
 SELECT employee_id, first_name, salary,
        (SELECT AVG(salary) FROM employees) AS avg_salary
 FROM employees;
 Subquery with IN Operator
-
-sql
 SELECT product_name 
 FROM products
 WHERE product_id IN (SELECT product_id FROM order_details WHERE quantity > 3);
 Correlated Subquery
 
-sql
 SELECT e.first_name, e.salary
 FROM employees e
 WHERE salary > (SELECT AVG(salary) 
                 FROM employees 
                 WHERE department_id = e.department_id);
 EXISTS Operator
-
-sql
 SELECT c.company_name
 FROM customers c
 WHERE EXISTS (SELECT 1 FROM orders o 
               WHERE o.customer_id = c.customer_id
               AND o.order_date > '2023-01-01');
 Derived Table (Subquery in FROM)
-
-sql
 SELECT d.department_name, emp_count.employee_count
 FROM departments d
 JOIN (SELECT department_id, COUNT(*) AS employee_count
