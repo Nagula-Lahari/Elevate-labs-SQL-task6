@@ -22,7 +22,7 @@ This project showcases different implementations of SQL subqueries including:
 
 ## Database Schema
 
-```mermaid
+
 erDiagram
     departments ||--o{ employees : "1-to-many"
     customers ||--o{ orders : "1-to-many"
